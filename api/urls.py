@@ -1,3 +1,10 @@
-from django.urls import path
+from rest_framework.routers import DefaultRouter
 
-urlpatterns = []
+from api.views import ProfileImageViewSet, ProfileViewSet, MessageViewSet
+
+router = DefaultRouter()
+router.register('profile-images', ProfileImageViewSet, basename='profileimage')
+router.register('profile', ProfileViewSet, basename='profile')
+router.register('message', MessageViewSet, basename='message')
+
+urlpatterns = router.urls
